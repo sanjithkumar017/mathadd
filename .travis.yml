@@ -14,7 +14,6 @@ jobs:
       deploy:
         provider: script
         script: 
-          - yarn
           - npx semantic-release
         email: $NPM_EMAIL_ADDRESS
         api_key: $NPM_AUTH_TOKEN
