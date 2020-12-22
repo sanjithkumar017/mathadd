@@ -11,8 +11,9 @@ jobs:
       script: 'npm run build'
       name: 'Deploy to NPM'
       deploy:
-        provider: npm
-        script: 'npm run semantic-release'
+        provider: script
+        script: 
+          -'npm run semantic-release'
         email: $NPM_EMAIL_ADDRESS
         api_key: $NPM_AUTH_TOKEN
         cleanup: true
