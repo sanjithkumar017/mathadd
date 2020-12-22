@@ -13,7 +13,7 @@ jobs:
       deploy:
         provider: script
         script: 
-          - npm run semantic-release
+          - npx semantic-release
         email: $NPM_EMAIL_ADDRESS
         api_key: $NPM_AUTH_TOKEN
         cleanup: true
