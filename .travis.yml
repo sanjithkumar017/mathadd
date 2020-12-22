@@ -1,6 +1,7 @@
 language: node_js
 node_js:
   - '12.13'
+cache: yarn
 
 jobs:
   include:
@@ -13,7 +14,8 @@ jobs:
       deploy:
         provider: script
         script: 
-          - npx semantic-release
+          - yarn install
+          - yarn semantic-release
         email: $NPM_EMAIL_ADDRESS
         api_key: $NPM_AUTH_TOKEN
         cleanup: true
