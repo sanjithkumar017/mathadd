@@ -1,6 +1,6 @@
 {
   "name": "mathadd",
-  "version": "1.0.3",
+  "version": "1.0.4-rel-branch.1",
   "description": "demo",
   "main": "index.js",
   "repository": {
