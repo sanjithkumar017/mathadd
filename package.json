@@ -36,6 +36,10 @@
       {
         "name": "alpha",
         "prerelease": true
+      },
+      {
+        "name": "rel-branch",
+        "prerelease": true
       }
     ],
     "plugins": [
