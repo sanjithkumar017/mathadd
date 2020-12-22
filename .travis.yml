@@ -16,4 +16,4 @@ jobs:
         api_key: $NPM_AUTH_TOKEN
         cleanup: true
         on:
-          branch: master
+          branch: main
