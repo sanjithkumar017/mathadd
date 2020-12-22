@@ -1,3 +1,11 @@
+## [1.0.4-rel-branch.1](https://github.com/sanjithkumar017/mathadd/compare/v1.0.3...v1.0.4-rel-branch.1) (2020-12-22)
+
+
+### Bug Fixes
+
+* **test:** fix 8 ([9bda155](https://github.com/sanjithkumar017/mathadd/commit/9bda1557dca858b96afe689091c89b1ab3da1557))
+* **test:** fix 88 ([7c24bd2](https://github.com/sanjithkumar017/mathadd/commit/7c24bd27902198c299da466583702bfcef9af2af))
+
 ## [1.0.3](https://github.com/sanjithkumar017/mathadd/compare/v1.0.2...v1.0.3) (2020-12-22)
 
 
