@@ -19,4 +19,9 @@ jobs:
         api_key: $NPM_AUTH_TOKEN
         cleanup: true
         on:
-          all_branches: true
+          branches:
+            only:
+              - master
+              - rel-branch
+              - alpha
+              - beta
