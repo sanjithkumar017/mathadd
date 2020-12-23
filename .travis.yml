@@ -12,7 +12,7 @@ jobs:
       script: 'yarn run build'
       name: 'Deploy to NPM'
       before_deploy:
-        - yarn
+        - yarn install
       deploy:
         provider: script
         script: 
