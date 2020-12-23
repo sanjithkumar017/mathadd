@@ -7,10 +7,12 @@ jobs:
   include:
     - stage: test
       name: 'Unit Tests'
-      script: 'npm run test'
+      script: 'yarn run test'
     - stage: deploy
-      script: 'npm run build'
+      script: 'yarn run build'
       name: 'Deploy to NPM'
+      before_deploy:
+        - yarn
       deploy:
         provider: script
         script: 
