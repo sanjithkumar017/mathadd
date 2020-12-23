@@ -17,9 +17,7 @@ jobs:
         before_script:
         - yarn install
         script:
-          - npx semantic-release
-        email: $NPM_EMAIL_ADDRESS
-        api_key: $NPM_AUTH_TOKEN
+          - yarn && npx semantic-release
         cleanup: true
         on:
           all_branches: true
