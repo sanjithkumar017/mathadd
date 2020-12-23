@@ -5,9 +5,6 @@ cache: yarn
 
 jobs:
   include:
-    - stage: test
-      name: 'Unit Tests'
-      script: 'npm run test'
     - stage: deploy
       script: 'npm run build'
       name: 'Deploy to NPM'
@@ -19,9 +16,8 @@ jobs:
         api_key: $NPM_AUTH_TOKEN
         cleanup: true
         on:
-          branches:
-            only:
-              - master
-              - rel-branch
-              - alpha
-              - beta
+          branch:
+            - master
+            - rel-branch
+            - alpha
+            - beta
