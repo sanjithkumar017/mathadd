@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/sanjithkumar017/mathadd/compare/v1.0.5...v1.1.0) (2021-01-21)
+
+
+### Features
+
+* **test:** testing feature rel ([3c7a503](https://github.com/sanjithkumar017/mathadd/commit/3c7a50322a1404ea7f1ce0a58439f7981e9d213a))
+
 ## [1.0.5](https://github.com/sanjithkumar017/mathadd/compare/v1.0.4...v1.0.5) (2020-12-23)
 
 
