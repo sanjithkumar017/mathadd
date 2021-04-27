@@ -21,22 +21,6 @@ jobs:
                   key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
             - run: yarn install --frozen-lockfile
             - run: yarn build
-    test:
-        name: Test Stage
-        needs: build
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-node@v2
-              with:
-                  node-version: 12
-            - uses: actions/cache@v2
-              id: restore-build
-              with:
-                  path: '**/node_modules'
-                  key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
-            - run: yarn install --frozen-lockfile
-            - run: yarn test
     publish:
         name: Publish Stage
         needs: build
@@ -53,3 +37,19 @@ jobs:
             - uses: cycjimmy/semantic-release-action@v2.5.3
               with:
                   node-version: 12
+    test:
+        name: Test Stage
+        needs: build
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v2
+              with:
+                  node-version: 12
+            - uses: actions/cache@v2
+              id: restore-build
+              with:
+                  path: '**/node_modules'
+                  key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+            - run: yarn install --frozen-lockfile
+            - run: yarn test
