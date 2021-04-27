@@ -30,6 +30,12 @@ jobs:
             - uses: actions/setup-node@v2
               with:
                   node-version: 12
+            - uses: actions/cache@v2
+              id: restore-build
+              with:
+                  path: '**/node_modules'
+                  key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+            - run: yarn install --frozen-lockfile
             - run: yarn test
     publish:
         name: Publish Stage
@@ -38,6 +44,12 @@ jobs:
         steps:
             - uses: actions/checkout@v2
             - uses: actions/setup-node@v2
+            - uses: actions/cache@v2
+              id: restore-build
+              with:
+                  path: '**/node_modules'
+                  key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+            - run: yarn install --frozen-lockfile
             - run: yarn install --frozen-lockfile
             - uses: cycjimmy/semantic-release-action@v2.5.3
               with:
