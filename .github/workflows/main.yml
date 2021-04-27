@@ -6,19 +6,6 @@ name: MathAdd
 on: [push, pull_request]
 
 jobs:
-  install:
-        name: Install Stage
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-node@v2
-              with:
-                  node-version: 12
-            - uses: actions/cache@v2
-              with:
-                  path: '**/node_modules'
-                  key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
-            - run: yarn install --frozen-lockfile
     build:
         name: Build Stage
         runs-on: ubuntu-latest
