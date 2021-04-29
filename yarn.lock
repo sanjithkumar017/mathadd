@@ -8143,6 +8143,11 @@ string-length@^4.0.1:
     char-regex "^1.0.2"
     strip-ansi "^6.0.0"
 
+string-reversal-example@^1.0.15:
+  version "1.0.15"
+  resolved "https://registry.yarnpkg.com/string-reversal-example/-/string-reversal-example-1.0.15.tgz#ed9600c8b208547b75ba74dbea8bbc3892bcfd36"
+  integrity sha1-7ZYAyLIIVHt1unTb6ou8OJK8/TY=
+
 string-width@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/string-width/-/string-width-1.0.2.tgz#118bdf5b8cdc51a2a7e70d211e07e2b0b9b107d3"
