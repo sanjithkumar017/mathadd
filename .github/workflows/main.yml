@@ -4,7 +4,9 @@
 name: MathAdd
 
 on: [push, pull_request]
-
+env:
+    GITHUB_TOKEN: '${{ secrets.REACT_GITHUB_TOKEN }}'
+    NPM_TOKEN: '${{ secrets.NPM_TOKEN }}'
 jobs:
     build:
         name: Build
