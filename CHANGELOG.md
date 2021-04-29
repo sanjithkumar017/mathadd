@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/sanjithkumar017/mathadd/compare/v1.3.0...v1.4.0) (2021-04-29)
+
+
+### Features
+
+* **ss:** tony pas ([7dcf865](https://github.com/sanjithkumar017/mathadd/commit/7dcf865499786d801818d4f9f6a1c4e112e82453))
+
 # [1.3.0](https://github.com/sanjithkumar017/mathadd/compare/v1.2.0...v1.3.0) (2021-04-29)
 
 
