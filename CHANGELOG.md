@@ -1,3 +1,11 @@
+# [1.3.0](https://github.com/sanjithkumar017/mathadd/compare/v1.2.0...v1.3.0) (2021-04-29)
+
+
+### Features
+
+* **ss:** tony pa ([fa3e33f](https://github.com/sanjithkumar017/mathadd/commit/fa3e33f2f874c9073707b5a3017c9a824f022f93))
+* **ss:** tony paa ([3f40d9b](https://github.com/sanjithkumar017/mathadd/commit/3f40d9b145a5ba26721986c01e3be108112349ca))
+
 # [1.2.0](https://github.com/sanjithkumar017/mathadd/compare/v1.1.0...v1.2.0) (2021-04-29)
 
 
