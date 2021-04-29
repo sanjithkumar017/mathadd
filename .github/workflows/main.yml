@@ -7,7 +7,7 @@ on: [push, pull_request]
 
 jobs:
     build:
-        name: Build Stage
+        name: Build
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
@@ -21,24 +21,13 @@ jobs:
                   key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
             - run: yarn install --frozen-lockfile
             - run: yarn build
-    publish:
-        name: Publish Stage
-        needs: build
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-node@v2
-            - uses: actions/cache@v2
-              id: restore-build
+            - uses: actions/upload-artifact@v2
               with:
-                  path: '**/node_modules'
-                  key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
-            - run: yarn install --frozen-lockfile
-            - uses: cycjimmy/semantic-release-action@v2.5.3
-              with:
-                  node-version: 12
+                  name: dist
+                  path: ./dist
+
     test:
-        name: Test Stage
+        name: Test
         needs: build
         runs-on: ubuntu-latest
         steps:
@@ -53,3 +42,23 @@ jobs:
                   key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
             - run: yarn install --frozen-lockfile
             - run: yarn test
+    publish:
+        name: Publish
+        needs: build
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v2
+            - uses: actions/cache@v2
+              id: restore-build
+              with:
+                  path: '**/node_modules'
+                  key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+            - run: yarn install --frozen-lockfile
+            - uses: actions/download-artifact@v2
+              with:
+                  name: dist
+                  path: ./dist
+            - uses: cycjimmy/semantic-release-action@v2.5.3
+              with:
+                  node-version: 12
