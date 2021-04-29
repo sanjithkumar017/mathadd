@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/sanjithkumar017/mathadd/compare/v1.4.0...v1.5.0) (2021-04-29)
+
+
+### Features
+
+* **ss:** tony fail ([0d89812](https://github.com/sanjithkumar017/mathadd/commit/0d898128775f0839b65d7a251cce5ef2789a28ae))
+
 # [1.4.0](https://github.com/sanjithkumar017/mathadd/compare/v1.3.0...v1.4.0) (2021-04-29)
 
 
