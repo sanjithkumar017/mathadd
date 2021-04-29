@@ -1,3 +1,23 @@
+# [1.2.0](https://github.com/sanjithkumar017/mathadd/compare/v1.1.0...v1.2.0) (2021-04-29)
+
+
+### Features
+
+* **all time taste:** oioi ([b41d9b4](https://github.com/sanjithkumar017/mathadd/commit/b41d9b4c3be547ed21d5480cd3773b4e5ca02cab))
+* **all time taster:** oioi ([90e24ce](https://github.com/sanjithkumar017/mathadd/commit/90e24cee0f2d74c236bdf58bb79ef68b0025aad3))
+* **all time tasterr:** ahoi ([dc25afd](https://github.com/sanjithkumar017/mathadd/commit/dc25afd6416eef61995123d754d45c0c4dc6fbe1))
+* **all time tasterr:** boi ([012e00f](https://github.com/sanjithkumar017/mathadd/commit/012e00fef976c3c65deaae82f154b044ed9b6abd))
+* **all time tasterr:** boiboi ([5f63dbb](https://github.com/sanjithkumar017/mathadd/commit/5f63dbbd7719fdf8735ba2c139e54841a13488a2))
+* **all time tasterr:** boiboiboi ([5cf3613](https://github.com/sanjithkumar017/mathadd/commit/5cf3613250540a46aa8733e5398c538bc2c04f63))
+* **all time tasterr:** oioi ([8388f6f](https://github.com/sanjithkumar017/mathadd/commit/8388f6f2216890d3ec9b47c2a8e3f36c48e31baf))
+* **ee:** art ([783d8d7](https://github.com/sanjithkumar017/mathadd/commit/783d8d75038011d0bcc73211cc11b5a559f88afc))
+* **f:** feat add ([c03ac67](https://github.com/sanjithkumar017/mathadd/commit/c03ac6764f20ff27a537befe2854f9b72866f3ea))
+* **github actions:** setup ga. ([dd2cb61](https://github.com/sanjithkumar017/mathadd/commit/dd2cb614abbdea47a4e823f576225f6ac3645076))
+* **hop:** test ([c567c7a](https://github.com/sanjithkumar017/mathadd/commit/c567c7a09997fcc620f6ef97b7602394aae2c073))
+* **lib:** gr8 ([fd274c5](https://github.com/sanjithkumar017/mathadd/commit/fd274c5f5ce6184826ec5f3ffa07abb8200cd062))
+* **r:** r ([844be1e](https://github.com/sanjithkumar017/mathadd/commit/844be1edf0aa116ecf7f5b413799c5fa90704313))
+* **t:** gr88 ([6285263](https://github.com/sanjithkumar017/mathadd/commit/628526322845546ef44d1cad67a19c3ee7e7a949))
+
 # [1.1.0](https://github.com/sanjithkumar017/mathadd/compare/v1.0.5...v1.1.0) (2021-01-21)
 
 
