@@ -4,11 +4,9 @@
 name: MathAdd
 
 on: [push, pull_request, release, publish, edit]
-env:
-    GITHUB_TOKEN: '${{ secrets.REACT_GITHUB_TOKEN }}'
-    NPM_TOKEN: '${{ secrets.NPM_TOKEN }}'
+
 jobs:
-    publish:
+    something:
         name: Publish
         runs-on: ubuntu-latest
         steps:
