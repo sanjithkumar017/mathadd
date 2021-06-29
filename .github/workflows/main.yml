@@ -3,7 +3,7 @@
 
 name: MathAdd
 
-on: [push, pull_request, release, publish, edit]
+on: [push, pull_request, release, edit]
 
 jobs:
     somethingg:
