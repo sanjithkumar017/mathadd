@@ -3,7 +3,7 @@
 
 name: MathAdd
 
-on: [push, pull_request]
+on: [push, pull_request, release, publish, edit]
 env:
     GITHUB_TOKEN: '${{ secrets.REACT_GITHUB_TOKEN }}'
     NPM_TOKEN: '${{ secrets.NPM_TOKEN }}'
@@ -23,10 +23,6 @@ jobs:
                   key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
             - run: yarn install --frozen-lockfile
             - run: yarn build
-            # - uses: actions/upload-artifact@v2
-            #   with:
-            #       name: dist
-            #       path: ./public/dist
 
     test:
         name: Test
@@ -57,10 +53,14 @@ jobs:
                   path: '**/node_modules'
                   key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
             - run: yarn install --frozen-lockfile
-            - uses: actions/download-artifact@v2
-            #   with:
-            #       name: dist
-            #       path: ./public/dist
-            - uses: cycjimmy/semantic-release-action@v2.5.3
-              with:
-                  node-version: 12
+            - name: Deploy Stage
+              if: 'github.event.release.prerelease'
+              run: echo "-- deploy-stage"
+
+            - name: Deploy Prod
+              if: '!github.event.release.prerelease'
+              run: echo "-- deploy-prod"
+
+            - name: Publish Storybook
+              if: '!github.event.release.prerelease'
+              run: echo "-- deploy-storybook"
