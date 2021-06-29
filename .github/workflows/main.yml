@@ -3,58 +3,28 @@
 
 name: MathAdd
 
-on: [push, pull_request, release, publish, edit]
-env:
-    GITHUB_TOKEN: '${{ secrets.REACT_GITHUB_TOKEN }}'
-    NPM_TOKEN: '${{ secrets.NPM_TOKEN }}'
-jobs:
-    build:
-        name: Build
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-node@v2
-              with:
-                  node-version: 12
-            - uses: actions/cache@v2
-              id: restore-build
-              with:
-                  path: '**/node_modules'
-                  key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
-            - run: yarn install --frozen-lockfile
-            - run: yarn build
+on:
+    # Trigger the workflow on pull request and release
+    pull_request:
+    release:
+        types: [published]
 
-    test:
-        name: Test
-        needs: build
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-node@v2
-              with:
-                  node-version: 12
-            - uses: actions/cache@v2
-              id: restore-build
-              with:
-                  path: '**/node_modules'
-                  key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
-            - run: yarn install --frozen-lockfile
-            - run: yarn test
-    publish:
+jobs:
+    somethingg:
         name: Publish
-        needs: build
         runs-on: ubuntu-latest
         steps:
             - name: Pre-reqs
               uses: actions/checkout@v2
+
             - name: Deploy Stage
-              if: 'github.event.release.prerelease'
-              run: echo "-- deploy-stage"
+              if: 'github.event.release.tag_name && github.event.release.prerelease'
+              run: echo "-- deploy-stage ${{ github.event.release.tag_name }} ${{ github.event_name }}"
 
             - name: Deploy Prod
-              if: '!github.event.release.prerelease'
-              run: echo "-- deploy-prod"
+              if: 'github.event.release.tag_name && !github.event.release.prerelease'
+              run: echo "-- deploy-prod ${{ github.event.release.tag_name }} ${{ github.event_name }}"
 
             - name: Publish Storybook
-              if: '!github.event.release.prerelease'
-              run: echo "-- deploy-storybook"
+              if: 'github.event.release.tag_name && !github.event.release.prerelease'
+              run: echo "-- deploy-storybook ${{ github.event.release.tag_name }} ${{ github.event_name }}"
