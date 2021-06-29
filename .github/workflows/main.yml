@@ -7,7 +7,7 @@ on:
     # Trigger the workflow on pull request and release
     pull_request:
     release:
-        types: [published, edited]
+        types: [published]
 
 jobs:
     somethingg:
@@ -19,12 +19,12 @@ jobs:
 
             - name: Deploy Stage
               if: 'github.event.release.prerelease'
-              run: echo "-- deploy-stage ${{ github.event.release.tag_name }} ${{ github.event.release}}"
+              run: echo "-- deploy-stage ${{ github.event.release.tag_name }} ${{ JSON.stringify(github.event.release)}}"
 
             - name: Deploy Prod
               if: '!github.event.release.prerelease'
-              run: echo "-- deploy-prod ${{ github.event.release.tag_name }} ${{ github.event.release}}"
+              run: echo "-- deploy-prod ${{ github.event.release.tag_name }} ${{ JSON.stringify(github.event.release)}}"
 
             - name: Publish Storybook
               if: '!github.event.release.prerelease'
-              run: echo "-- deploy-storybook ${{ github.event.release.tag_name }} ${{ github.event.release}}"
+              run: echo "-- deploy-storybook ${{ github.event.release.tag_name }} ${{ JSON.stringify(github.event.release)}}"
