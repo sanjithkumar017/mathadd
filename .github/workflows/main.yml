@@ -6,7 +6,7 @@ name: MathAdd
 on: [push, pull_request, release, publish, edit]
 
 jobs:
-    something:
+    somethingg:
         name: Publish
         runs-on: ubuntu-latest
         steps:
