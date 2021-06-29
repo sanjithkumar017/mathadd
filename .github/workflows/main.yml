@@ -3,7 +3,11 @@
 
 name: MathAdd
 
-on: [push, pull_request, release, edit]
+on:
+    # Trigger the workflow on pull request and release
+    pull_request:
+    release:
+        types: [published, edited]
 
 jobs:
     somethingg:
