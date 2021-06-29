@@ -19,12 +19,12 @@ jobs:
 
             - name: Deploy Stage
               if: 'github.event.release.prerelease'
-              run: echo "-- deploy-stage ${{ github.event.release.tag_name }} ${{ JSON.stringify(github.event.release)}}"
+              run: echo "-- deploy-stage ${{ github.event.release.tag_name }}"
 
             - name: Deploy Prod
               if: '!github.event.release.prerelease'
-              run: echo "-- deploy-prod ${{ github.event.release.tag_name }} ${{ JSON.stringify(github.event.release)}}"
+              run: echo "-- deploy-prod ${{ github.event.release.tag_name }}"
 
             - name: Publish Storybook
               if: '!github.event.release.prerelease'
-              run: echo "-- deploy-storybook ${{ github.event.release.tag_name }} ${{ JSON.stringify(github.event.release)}}"
+              run: echo "-- deploy-storybook ${{ github.event.release.tag_name }}"
