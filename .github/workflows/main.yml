@@ -10,7 +10,7 @@ on:
         types: [published, edited]
 
 jobs:
-    somethingg:
+    publish:
         name: Publish
         runs-on: ubuntu-latest
         steps:
@@ -19,7 +19,7 @@ jobs:
 
             - name: Deploy Stage
               if: ${{ github.event_name == 'release' && github.event.release.prerelease }}
-              run: echo "-- deploy-stage ${{ github.event.release.tag_name }} ${{ github.event_name }}"
+              run: echo ${{ github.event_name == 'release' && !github.event.release.prerelease?'it is prod':'it is stage' }}
 
             - name: Deploy Prod
               if: ${{ github.event_name == 'release' && !github.event.release.prerelease }}
