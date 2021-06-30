@@ -32,7 +32,7 @@ jobs:
             - name: Audit Prod
               uses: jakejarvis/lighthouse-action@master
               with:
-                  url: ${{ github.event_name == 'release' && !github.event.release.prerelease?'it is prod':'it is stage' }}
+                  url: "${{ github.event_name == 'release' && !github.event.release.prerelease?'it is prod':'it is stage' }}"
             - name: Upload results as an artifact
               uses: actions/upload-artifact@master
               with:
