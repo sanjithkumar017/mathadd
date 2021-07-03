@@ -9,6 +9,10 @@ on:
     release:
         types: [published, edited]
 
+env:
+    productionUrl: 'https://github.com/unbxd/website'
+    stageUrl: 'https://github.com/sanjithkumar017/website'
+
 jobs:
     publish:
         name: Publish
@@ -18,12 +22,16 @@ jobs:
               uses: actions/checkout@v2
 
             - name: Deploy Stage
+              id: deploy
               if: ${{ github.event_name == 'release' && github.event.release.prerelease }}
-              run: echo "-- deploy-stage ${{ github.event.release.tag_name }} ${{ github.event_name }}"
-
+              run: |
+                  echo "-- deploy-stage ${{ github.event.release.tag_name }} ${{ github.event_name }}"
+                  echo '::set-output name=RELEASE_TYPE::$stageUrl'
             - name: Deploy Prod
               if: ${{ github.event_name == 'release' && !github.event.release.prerelease }}
-              run: echo "-- deploy-prod ${{ github.event.release.tag_name }} ${{ github.event_name }}"
+              run: |
+                  echo "-- deploy-prod ${{ github.event.release.tag_name }} ${{ github.event_name }}"
+                  echo '::set-output name=RELEASE_TYPE::$productionUrl'
 
             - name: Publish Storybook
               if: ${{ github.event_name == 'release' && !github.event.release.prerelease }}
@@ -32,7 +40,7 @@ jobs:
             - name: Audit Prod
               uses: jakejarvis/lighthouse-action@master
               with:
-                  url: "${{ github.event_name == 'release' && !github.event.release.prerelease?'it is prod':'it is stage' }}"
+                  url: ${{github.event_name == 'release' && !github.event.release.prerelease ? 'https://jarv.is/':'apple'}}
             - name: Upload results as an artifact
               uses: actions/upload-artifact@master
               with:
