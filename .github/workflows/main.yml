@@ -9,6 +9,11 @@ on:
     release:
         types: [published, edited]
 
+env:
+    PRODUCTION_URL: 'https://unbxd.github.io/website'
+    STAGE_URL: 'https://sanjithkumar017.github.io/website/'
+    TEST_URL: 'https://sanjithkumar017.github.io/website/'
+
 jobs:
     somethingg:
         name: Publish
@@ -28,3 +33,18 @@ jobs:
             - name: Publish Storybook
               if: ${{ github.event_name == 'release' && !github.event.release.prerelease }}
               run: echo "-- deploy-storybook ${{ github.event.release.tag_name }} ${{ github.event_name }}"
+
+            - name: Display Name
+              id: testLive
+              run: |
+                  echo ${{ env.TEST_URL }}
+
+            - name: Audit live URL
+              uses: jakejarvis/lighthouse-action@master
+              with:
+                  url: ${{ env.TEST_URL }}
+            - name: Upload results as an artifact
+              uses: actions/upload-artifact@master
+              with:
+                  name: report
+                  path: './report'
