@@ -12,6 +12,7 @@ on:
 env:
     productionUrl: 'https://unbxd.github.io/website'
     stageUrl: 'https://sanjithkumar017.github.io/website/'
+    TEST_URL: 'https://sanjithkumar017.github.io/website/'
 
 jobs:
     publish:
@@ -45,7 +46,7 @@ jobs:
             - name: Audit live URL
               uses: jakejarvis/lighthouse-action@master
               with:
-                  url: ${{ env.TEST_URL || env.stageUrl }}
+                  url: ${{ env.TEST_URL }}
             - name: Upload results as an artifact
               uses: actions/upload-artifact@master
               with:
