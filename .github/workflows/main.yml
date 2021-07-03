@@ -40,7 +40,7 @@ jobs:
             - name: Audit Prod
               uses: jakejarvis/lighthouse-action@master
               with:
-                  url: ${{(github.event_name == 'release' && !github.event.release.prerelease) ? 'https://jarv.is/':'apple'}}
+                  url: ${{ github.event_name == 'release' && !github.event.release.prerelease }}
             - name: Upload results as an artifact
               uses: actions/upload-artifact@master
               with:
