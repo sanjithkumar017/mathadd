@@ -26,12 +26,12 @@ jobs:
               if: ${{ github.event_name == 'release' && github.event.release.prerelease }}
               run: |
                   echo "-- deploy-stage ${{ github.event.release.tag_name }} ${{ github.event_name }}"
-                  echo 'RANDOM_NAME='$(curl https://randomuser.me/api | jq '.results[0].name.first') >> $GITHUB_ENV
+                  echo 'TEST_URL='$stageUrl >> $GITHUB_ENV
             - name: Deploy Prod
               if: ${{ github.event_name == 'release' && !github.event.release.prerelease }}
               run: |
                   echo "-- deploy-prod ${{ github.event.release.tag_name }} ${{ github.event_name }}"
-                  echo 'RANDOM_NAME='$(curl https://randomuser.me/api | jq '.results[0].name.first') >> $GITHUB_ENV
+                  echo 'TEST_URL='$(curl https://randomuser.me/api | jq '.results[0].name.first') >> $GITHUB_ENV
 
             - name: Publish Storybook
               if: ${{ github.event_name == 'release' && !github.event.release.prerelease }}
@@ -39,4 +39,4 @@ jobs:
 
             - name: Display Name
               run: |
-                  echo ${{ env.RANDOM_NAME }}
+                  echo ${{ env.TEST_URL }}
