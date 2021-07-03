@@ -10,8 +10,8 @@ on:
         types: [published, edited]
 
 env:
-    productionUrl: 'https://github.com/unbxd/website'
-    stageUrl: 'https://github.com/sanjithkumar017/website'
+    productionUrl: 'https://unbxd.github.io/website'
+    stageUrl: 'https://sanjithkumar017.github.io/website/'
 
 jobs:
     publish:
