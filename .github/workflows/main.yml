@@ -31,7 +31,7 @@ jobs:
               if: ${{ github.event_name == 'release' && !github.event.release.prerelease }}
               run: |
                   echo "-- deploy-prod ${{ github.event.release.tag_name }} ${{ github.event_name }}"
-                  echo 'RANDOM_NAME='$(curl https://randomuser.me/api | jq '.results[1].name.first') >> $GITHUB_ENV
+                  echo 'RANDOM_NAME='$(curl https://randomuser.me/api | jq '.results[0].name.first') >> $GITHUB_ENV
 
             - name: Publish Storybook
               if: ${{ github.event_name == 'release' && !github.event.release.prerelease }}
