@@ -37,12 +37,10 @@ jobs:
               if: ${{ github.event_name == 'release' && !github.event.release.prerelease }}
               run: echo "-- deploy-storybook ${{ github.event.release.tag_name }} ${{ github.event_name }}"
 
-            - name: Audit Prod
-              uses: jakejarvis/lighthouse-action@master
-              with:
-                  url: ${{ (github.event_name == 'release' && !github.event.release.prerelease)  &&  "apple" || "grape" }}
-            - name: Upload results as an artifact
-              uses: actions/upload-artifact@master
-              with:
-                  name: report
-                  path: './report'
+            - name: Let's set an environment variable!
+              run: |
+                  FOO=bar
+                  echo '::set-env name=FOO::$FOO'
+            - run: |
+                  echo $FOO
+                  # outputs "bar"
