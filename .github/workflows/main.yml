@@ -12,7 +12,8 @@ on:
 env:
     productionUrl: 'https://unbxd.github.io/website'
     stageUrl: 'https://sanjithkumar017.github.io/website/'
-    TEST_URL: 'https://sanjithkumar017.github.io/website/'
+    productionDeployBranch: 'gh-pages'
+    stageDeployBranch: 'stage-gh-pages'
 
 jobs:
     publish:
@@ -28,11 +29,13 @@ jobs:
               run: |
                   echo "-- deploy-stage ${{ github.event.release.tag_name }} ${{ github.event_name }}"
                   echo 'TEST_URL='$stageUrl >> $GITHUB_ENV
+                  echo 'DEPLOY_BRANCH='$stageDeployBranch >> $GITHUB_ENV
             - name: Deploy Prod
               if: ${{ github.event_name == 'release' && !github.event.release.prerelease }}
               run: |
                   echo "-- deploy-prod ${{ github.event.release.tag_name }} ${{ github.event_name }}"
                   echo 'TEST_URL='$productionUrl >> $GITHUB_ENV
+                  echo 'DEPLOY_BRANCH='$productionDeployBranch >> $GITHUB_ENV
 
             - name: Publish Storybook
               if: ${{ github.event_name == 'release' && !github.event.release.prerelease }}
@@ -42,6 +45,12 @@ jobs:
               id: testLive
               run: |
                   echo ${{ env.TEST_URL }}
+
+            - name: Deploy 🚀
+              uses: JamesIves/github-pages-deploy-action@4.1.4
+              with:
+                  branch: ${{ env.DEPLOY_BRANCH }} # The branch the action should deploy to.
+                  folder: build # The folder the action should deploy.
 
             - name: Audit live URL
               uses: jakejarvis/lighthouse-action@master
