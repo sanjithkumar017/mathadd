@@ -47,6 +47,7 @@ jobs:
                   echo ${{ env.TEST_URL }}
 
             - name: Deploy 🚀
+              if: ${{ env.DEPLOY_BRANCH }}
               uses: JamesIves/github-pages-deploy-action@4.1.4
               with:
                   branch: ${{ env.DEPLOY_BRANCH }} # The branch the action should deploy to.
